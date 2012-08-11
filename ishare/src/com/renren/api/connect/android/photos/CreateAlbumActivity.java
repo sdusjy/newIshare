@@ -7,6 +7,8 @@ package com.renren.api.connect.android.photos;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.google.sdu.main.R;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,7 +23,7 @@ import android.widget.Spinner;
 
 import com.renren.api.connect.android.AsyncRenren;
 import com.renren.api.connect.android.AuthorizationHelper;
-import com.renren.api.connect.android.R;
+
 import com.renren.api.connect.android.Util;
 import com.renren.api.connect.android.common.AbstractRenrenRequestActivity;
 import com.renren.api.connect.android.common.AbstractRequestListener;

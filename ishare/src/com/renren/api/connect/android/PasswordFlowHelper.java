@@ -6,6 +6,7 @@ package com.renren.api.connect.android;
 
 import java.util.concurrent.Executor;
 
+import org.google.sdu.main.R;
 import org.json.JSONObject;
 
 import android.app.Activity;

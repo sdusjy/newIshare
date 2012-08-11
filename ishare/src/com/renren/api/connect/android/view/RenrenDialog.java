@@ -17,6 +17,7 @@
 package com.renren.api.connect.android.view;
 
 import org.apache.http.util.EncodingUtils;
+import org.google.sdu.main.R;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -40,7 +41,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.renren.api.connect.android.R;
+
 import com.renren.api.connect.android.Renren;
 
 /**

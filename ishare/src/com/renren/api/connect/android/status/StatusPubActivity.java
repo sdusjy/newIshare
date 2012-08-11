@@ -4,6 +4,8 @@
  */
 package com.renren.api.connect.android.status;
 
+import org.google.sdu.main.R;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -22,7 +24,7 @@ import android.widget.Toast;
 
 import com.renren.api.connect.android.AsyncRenren;
 import com.renren.api.connect.android.AuthorizationHelper;
-import com.renren.api.connect.android.R;
+
 import com.renren.api.connect.android.Util;
 import com.renren.api.connect.android.common.AbstractRenrenRequestActivity;
 import com.renren.api.connect.android.common.AbstractRequestListener;

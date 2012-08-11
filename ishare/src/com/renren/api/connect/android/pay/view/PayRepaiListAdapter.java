@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.renren.api.connect.android.R;
+import org.google.sdu.main.R;
+
+
 import com.renren.api.connect.android.pay.bean.PayOrder;
 import com.renren.api.connect.android.pay.impl.RenrenPay;
 

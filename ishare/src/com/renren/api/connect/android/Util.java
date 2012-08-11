@@ -36,6 +36,7 @@ import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.Iterator;
 
+import org.google.sdu.main.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;

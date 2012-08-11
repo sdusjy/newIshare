@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import org.google.sdu.main.R;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,7 +26,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.renren.api.connect.android.AuthorizationHelper;
-import com.renren.api.connect.android.R;
+
 import com.renren.api.connect.android.Util;
 import com.renren.api.connect.android.common.AbstractRenrenRequestActivity;
 import com.renren.api.connect.android.common.AbstractRequestListener;

@@ -16,6 +16,8 @@
 
 package com.renren.api.connect.android.view;
 
+import org.google.sdu.main.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -25,7 +27,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
-import com.renren.api.connect.android.R;
+
 import com.renren.api.connect.android.Renren;
 import com.renren.api.connect.android.exception.RenrenAuthError;
 import com.renren.api.connect.android.view.ConnectButtonListenerHelper.DefaultConnectButtonListener;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bookitem">
+        <item >@string/book_camera</item>
+        <item >@string/book_local</item>
+        <item >@string/book_internet</item>
+       
+        <item >@string/book_search</item>
+       
+    </string-array>
+    <string-array name="shopitem">
+        <item >@string/shop_camera</item>
+        <item >@string/shop_search</item>
+        
+        
+    </string-array>
+   <string-array name="main">
+       <item >@string/book_title</item>
+       <item >@string/shop</item>
+       <item >@string/movie</item>
+       <item >@string/weather</item>
+       <item >@string/news</item>
+   </string-array>
+</resources>

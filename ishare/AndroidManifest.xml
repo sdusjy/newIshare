@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.google.sdu.main"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application> <!-- renren sdk 中的 Activity -->
+        <!-- 辅助完成 SSO、Oauth 的 Activity ,必须在 AndroidManifest.xml 中声明 -->
+        <activity
+            android:name="com.renren.api.connect.android.AuthorizationHelper$BlockActivity"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <!--发布状态的 Activity,如需使用一键发布状态的功能,则必须在AndroidManifest.xml 中声明
+        -->
+        <activity android:name="com.renren.api.connect.android.status.StatusPubActivity" >
+        </activity>
+        <!--发布照片的 Activity,如需使用一键上传图片的功能,则必须在AndroidManifest.xml 中声明-->
+        <activity android:name="com.renren.api.connect.android.photos.UploadPhotoActivity" >
+        </activity>
+        android:icon="@drawable/ic_laucher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".IshareActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ScanDemo"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".BookActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="org.google.sdu.zxing.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity android:name="org.google.sdu.douban.DoubanMainActivity" >
+        </activity>
+        <activity android:name="org.google.sdu.douban.movie.ExpDoubanMovieActivity" >
+             >
+        </activity>
+        <activity android:name="org.google.sdu.douban.book.SearchBookActivity" >
+        </activity>
+        <activity android:name="org.google.sdu.douban.isbnbook.IsbnGetBookActivity"></activity>
+    </application>
+
+</manifest>

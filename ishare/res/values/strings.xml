@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, IshareActivity!</string>
+    <string name="app_name">爱分享</string>
+    <string name="book_title">爱读书</string>
+    <string name="shop">爱购物</string>
+    <string name="book_camera">条形码扫描</string>
+    <string name="book_local">本地图书</string>
+    <string name="book_internet">网上书城</string>
+    <string name="book_search">图书搜索</string>
+    <string name="shop_camera">条形码扫描</string>
+    <string name="shop_search">物品搜索</string>
+    <string name="weather">天气</string>
+    <string name="news">看天下</string>
+    <string name="movie_tag">请输入电影名、演员或关键字</string>
+    <string name="movie">"爱电影"</string>
+    
+</resources>

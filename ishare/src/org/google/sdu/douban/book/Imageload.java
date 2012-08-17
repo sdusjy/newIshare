@@ -23,13 +23,13 @@ public class Imageload extends AsyncTask<Object, Object, Bitmap> {
 		imageView = (ImageView) params[1];
 		int position = (Integer) params[2];
 		try {
-			if (map.size() > position) {
-				bmp = map.get(Integer.toString(position));
-			} else {
-				bmp = BitmapFactory.decodeStream(new URL((String) params[0])
+			//if (map.size() > position) {
+			//	bmp = map.get(Integer.toString(position));
+			//} else {
+			bmp = BitmapFactory.decodeStream(new URL((String) params[0])
 						.openStream());
-				map.put(Integer.toString(position), bmp);
-			}
+				//map.put(Integer.toString(position), bmp);
+			//}
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

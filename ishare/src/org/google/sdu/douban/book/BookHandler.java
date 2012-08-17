@@ -68,7 +68,7 @@ public class BookHandler extends DefaultHandler{
 			book.setRating(ratf);
 		} else if (localName.equalsIgnoreCase(kAttrElementName)) {
 			attr = attributes.getValue("name");
-		}else if(localName.equalsIgnoreCase(kSummaryElementName)){
+		}else if(qName.equalsIgnoreCase(kSummaryElementName)){
 		   attr=kSummaryElementName;
 		}
 	}
@@ -79,7 +79,7 @@ public class BookHandler extends DefaultHandler{
 		// TODO Auto-generated method stub
 		super.characters(ch, start, length);
 		String value = new String(ch, start, length);
-		//value = value.trim();
+		value = value.trim();
 		if (attr.equalsIgnoreCase(kTitleElementName)) {
 			title = value;
 		} else if (attr.equalsIgnoreCase(kAuthorAttrName)) {
@@ -101,6 +101,7 @@ public class BookHandler extends DefaultHandler{
 			book.setPublisher(value);
 		}else if(attr.equalsIgnoreCase(kSummaryElementName)){
 			summary=value;
+			Log.d(TAG, summary);
 			
 		}else if(attr.equalsIgnoreCase("author_intro")){
 			book.setAuthor_intro(value);

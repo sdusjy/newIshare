@@ -1,5 +1,10 @@
 package org.google.sdu.douban.book;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import org.google.sdu.douban.movie.ImageLoadTask;
@@ -7,6 +12,9 @@ import org.google.sdu.douban.movie.ImageLoadTask;
 import org.google.sdu.main.R;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +79,7 @@ public class BookAdapter extends BaseAdapter{
 		holder.txt_publish.setText("出版社："+" "+book.getPublisher());
 		holder.txt_isbn.setText("ISBN："+" "+book.getIsbn());
 		holder.rb.setRating(book.getRating());
-		new ImageLoadTask().execute(book.getImageurl(), holder.img, position);
+		holder.img.setImageBitmap(getPhotoBitmap(book.getImageurl()));
 		return v;
 	}
 
@@ -89,5 +97,29 @@ public class BookAdapter extends BaseAdapter{
 	public void setList(ArrayList<Book> list) {
 		this.list = list;
 	}
+	private Bitmap getPhotoBitmap(String url){
+		URL myFileUrl = null;
+		Bitmap bitmap = null;
+		try {
 
+
+				myFileUrl = new URL(url);
+		
+			HttpURLConnection conn = (HttpURLConnection) myFileUrl
+					.openConnection();
+			conn.setDoInput(true);
+			conn.connect();
+			InputStream is = conn.getInputStream();
+			bitmap = BitmapFactory.decodeStream(is);
+			  
+			
+			is.close();
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return bitmap;	
+	}
 }

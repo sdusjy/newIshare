@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -22,12 +24,12 @@ import org.google.sdu.douban.book.Imageload;
 import org.google.sdu.douban.book.SearchBookActivity;
 import org.google.sdu.main.R;
 import org.google.sdu.main.ScanDemo;
+import org.google.sdu.umeng.UMShare;
 import org.google.sdu.zxing.CaptureActivity;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-import com.renren.api.connect.android.Renren;
 
 
 
@@ -115,16 +117,9 @@ public class IsbnGetBookActivity extends Activity {
 									// TODO Auto-generated method stub
 									String imageurl=sharebook.getImageurl();
 									Bitmap bitmap=getPhotoBitmap(imageurl);
-									File file = null;
-									try {
-										file = getMyBitmap("bit", bitmap);
-									} catch (IOException e) {
-										e.printStackTrace();
-									}
-									Renren renren = new Renren("264044add63246e5b69f6cbac47452f0","a2379286abd74dffb3bd8eeb1e019a54","204949",IsbnGetBookActivity.this);
+									UMShare umshare=new UMShare();
+									umshare.shareToall(IsbnGetBookActivity.this, bitmap);
 									
-									renren.publishPhoto(IsbnGetBookActivity.this, file, sharebook.getTitle());
-
 								}
 							});
 							pd.dismiss();
@@ -161,10 +156,10 @@ public class IsbnGetBookActivity extends Activity {
 				ArrayList<Book> list = xmlResolver(url);
 				if(list!=null){
 					sharebook=list.get(0);
-					
+					ad = new BookAdapter(IsbnGetBookActivity.this, list);
+					handler.sendMessage(handler.obtainMessage());
 				}
-				ad = new BookAdapter(IsbnGetBookActivity.this, list);
-				handler.sendMessage(handler.obtainMessage());
+				
 			}
 		});
 		t_ready.start();
@@ -178,9 +173,11 @@ public class IsbnGetBookActivity extends Activity {
 			parser = factory.newSAXParser();
 			XMLReader xmlreader = parser.getXMLReader();
 			URL url = new URL(urlStr);
+			
 			Log.d("bookxml-urls:", urlStr);
 			InputSource is = new InputSource(url.openStream());
 			Log.d(TAG, "xml:" + is.toString());
+		   
 			xmlreader.setContentHandler(handler);
 			xmlreader.parse(is);
 		} catch (ParserConfigurationException e) {
@@ -232,6 +229,9 @@ public class IsbnGetBookActivity extends Activity {
 			conn.connect();
 			InputStream is = conn.getInputStream();
 			bitmap = BitmapFactory.decodeStream(is);
+			  Matrix matrix = new Matrix(); 
+			  matrix.postScale(2.0f,2.0f); //长和宽放大缩小的比例
+			 bitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
 			
 			is.close();
 
@@ -242,29 +242,7 @@ public class IsbnGetBookActivity extends Activity {
 		}
 		return bitmap;	
 	}
-	//创建file
-	public File  getMyBitmap(String bitName,Bitmap mBitmap) throws IOException {
-		File f = new File("/sdcard/Note/" + bitName + ".png");
-		f.createNewFile();
-		FileOutputStream fOut = null;
-		try {
-		fOut = new FileOutputStream(f);
-		} catch (FileNotFoundException e) {
-		e.printStackTrace();
-		}
-		mBitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut);
-		try {
-		fOut.flush();
-		} catch (IOException e) {
-		e.printStackTrace();
-		}
-		try {
-		fOut.close();
-		} catch (IOException e) {
-		e.printStackTrace();
-		}
-		return f;
-		}
+	
 
 
 }

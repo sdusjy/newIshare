@@ -3,7 +3,10 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="vertical"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:background="@drawable/background"
+  android:cacheColorHint="#00000000"
+  >
    <RelativeLayout 
         android:id="@+id/header_layout"
     android:layout_width="match_parent"
@@ -57,6 +60,7 @@
     android:layout_marginRight="10dip"
     android:layout_marginTop="10dip"
     android:layout_marginBottom="0dip"
+    android:cacheColorHint="#00000000"
     android:background="@drawable/bg_query_bar"
     >
     <EditText android:id="@+id/edit_movie_tag"
@@ -64,12 +68,14 @@
     android:layout_height="32dip"
     android:layout_weight="1"
     android:hint="@string/movie_tag"
+    android:cacheColorHint="#00000000"
     android:background="#00000000"
     />
     <Button android:id="@+id/btn_movie_query"
     android:layout_margin="1dip"
     android:layout_width="30dip"
     android:layout_height="30dip"
+    android:cacheColorHint="#00000000"
     android:background="@drawable/ico_query"
     />
     </LinearLayout>
@@ -83,6 +89,7 @@
     android:layout_marginBottom="0dip"
     android:padding="2dip"
     android:background="@drawable/bg_gh"
+    android:cacheColorHint="#00000000"
     >
     <ListView 
     android:id="@+id/search_booklist"
